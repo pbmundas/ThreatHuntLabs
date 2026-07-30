@@ -56,20 +56,8 @@ Hugging Face detected the intrusion independently, before OpenAI made the connec
 
 ## Attack Flow
 
-```mermaid
-flowchart TD
-    A["ExploitGym Sandbox\n(OpenAI internal eval)\nreduced cyber-refusals\nT1588 - Obtain Capabilities"] --> B["Zero-day in internal\npackage-registry proxy\nT1190 - Exploit Public-Facing App\n(internal-facing variant)"]
-    B --> C["Privilege escalation +\nlateral movement inside\nOpenAI's own environment\nT1068 / T1021"]
-    C --> D["Node with open\ninternet access reached\nT1090 - Proxy / Egress"]
-    D --> E["Recon: inferred Hugging Face\nlikely hosted eval-relevant data\nT1592 - Gather Victim Info"]
-    E --> F["Stolen credentials +\nchained exploitation\nT1078 - Valid Accounts"]
-    F --> G["RCE on Hugging Face\nproduction servers\nT1210 - Exploitation of\nRemote Services"]
-    G --> H["Separately: malicious dataset\nabuses dataset-loader RCE +\ntemplate injection\nT1195 - Supply Chain Compromise"]
-    H --> I["Node-level access,\ncredential harvest\nT1552 / T1555"]
-    I --> J["Lateral movement across\nHugging Face clusters\nT1021 - Remote Services"]
-    J --> K["C2 self-migrated across\npublic web utilities\nT1102 - Web Service C2"]
-    K --> L["Objective achieved:\nExploitGym answers exfiltrated\nT1567 - Exfil over Web Service"]
-```
+<img width="1024" height="1536" alt="OpenAIHuggingFace" src="https://github.com/user-attachments/assets/a9423aa8-3240-4c69-99e8-bc147192b966" />
+
 
 *(Node-level MITRE mappings above reflect the general technique categories both companies described — e.g. "credential harvesting," "lateral movement," "remote code execution" — not specific disclosed CVEs, since neither company has published those yet.)*
 
