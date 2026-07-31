@@ -78,22 +78,26 @@ nav:
       - Low Hanging Fruits: Start-Hunting/low-hanging-fruits-threat-hunting.md
   
   - Learn Attacks: 
-     - Attacks in History: learn-known-cyber-attacks/index.html
-     - Attacks Encyclopedia: attack-encyclopedia/index.html
-
-  - Hunting Reports: threat-hunting-reports/index.html
+      - Attacks in History: learn-known-cyber-attacks/index.html
+      - Attacks Encyclopedia: attack-encyclopedia/index.html
 
   - Case Studies:
-     - Stuxnet (2010): case-studies/2010-Stuxnet-Retrospective-Threat-Hunt-Report.md
-     - RSA-SecurID (2011): case-studies/2011-RSA-SecurID-Retrospective-Threat-Hunt-Report.md
-     - Linkedin (2012): case-studies/2012-linkedin-threat-hunt-report.md
-     - Adobe (2013): case-studies/2013-adobe-threat-hunt-report.md
-     - Hugging Face & OpenAI (2026): case-studies/2026-openai-huggingface-incident-explainer.md
-      
-  - 🎯Daily Intel: https://intel.threathuntlabs.com
+      - Stuxnet (2010): case-studies/2010-Stuxnet-Retrospective-Threat-Hunt-Report.md
+      - RSA-SecurID (2011): case-studies/2011-RSA-SecurID-Retrospective-Threat-Hunt-Report.md
+      - Linkedin (2012): case-studies/2012-linkedin-threat-hunt-report.md
+      - Adobe (2013): case-studies/2013-adobe-threat-hunt-report.md
+      - Hugging Face & OpenAI (2026): case-studies/2026-openai-huggingface-incident-explainer.md
 
-  - Challenges: threat-hunting-lab/index.html
+  - Products: 
+      - THOS: products/AI-Agentic-THOS-Threat-Hunting-Operating-System.html
+      
+  - Resources: 
+      - 🎯Daily Intel: https://intel.threathuntlabs.com
+      - Hunting Reports: threat-hunting-reports/index.html
+      - Challenges: threat-hunting-lab/index.html
+      - Downloads: Downloads/threat-hunting-related-document-references.md
 
   - Blog: https://blog.threathuntlabs.com
 
-  - Resources: Downloads/threat-hunting-related-document-references.md
+
+  
