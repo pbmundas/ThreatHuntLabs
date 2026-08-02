@@ -90,6 +90,7 @@ nav:
 
   - Products: 
       - THOS: products/AI-Agentic-THOS-Threat-Hunting-Operating-System.html
+      - Walkthrough: products/THOS-Walkthrough-Blog.md
       
   - Resources: 
       - 🎯Daily Intel: https://intel.threathuntlabs.com
