@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050706" />
+    <meta name="description" content="How to use the HUNTGRID threat hunting hypothesis library." />
+    <title>Field guide — HUNTGRID</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#guide">Skip to field guide</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="HUNTGRID home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>HUNT<span>GRID</span></span></a>
+      <nav aria-label="Primary navigation"><a href="index.html">Library</a><a class="active" href="about.html">Field guide</a></nav>
+      <div class="status-pill"><span></span> Static dataset</div>
+    </header>
+    <main class="guide shell" id="guide">
+      <section class="guide-hero">
+        <p class="eyebrow">FIELD GUIDE / 01</p>
+        <h1>From a lead to a<br /><em>defensible hunt.</em></h1>
+        <p>HUNTGRID turns a wide spreadsheet into an analyst-focused catalog. Use the library to discover hypotheses, confirm telemetry readiness, adapt detection logic, and structure an investigation.</p>
+      </section>
+      <section class="guide-grid">
+        <article><span>01</span><h2>Search broadly</h2><p>The main search checks every field in every hypothesis. Search for a technique ID, process, event ID, cloud service, log source, IOC, platform, or phrase.</p></article>
+        <article><span>02</span><h2>Narrow deliberately</h2><p>Use tactic, severity, platform, and priority filters to create a manageable queue. Filters combine with the global keyword search.</p></article>
+        <article><span>03</span><h2>Check readiness</h2><p>Open a record and review prerequisites, required log sources, event IDs, and platform telemetry before launching the hunt.</p></article>
+        <article><span>04</span><h2>Operationalize</h2><p>Copy a platform query as a starting point, validate your field mappings, and use the investigation and confirmation criteria to drive triage.</p></article>
+      </section>
+      <section class="guide-callout">
+        <div><p class="eyebrow">SEARCH SHORTCUT</p><h2>Press <kbd>/</kbd> anywhere in the catalog.</h2></div>
+        <a class="button-link" href="index.html">Open the library →</a>
+      </section>
+      <section class="guide-notes">
+        <h2>Use with analyst judgment</h2>
+        <p>The queries and rule suggestions are starting points, not production-ready detections. Confirm log schemas, tune baselines, review false-positive scenarios, and preserve evidence before containment changes system state.</p>
+      </section>
+    </main>
+    <footer class="site-footer shell"><p>HUNTGRID / Threat Hunting Hypothesis Library</p><p>Source: Threat_Hunting_Hypotheses.xlsx</p></footer>
+  </body>
+</html>

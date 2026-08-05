@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050706" />
+    <meta name="description" content="Threat hunting hypothesis details, detection guidance, platform queries, artifacts, and response actions." />
+    <title>Hypothesis detail — HUNTGRID</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body class="detail-page">
+    <a class="skip-link" href="#hypothesis-detail">Skip to hypothesis</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="HUNTGRID home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>HUNT<span>GRID</span></span>
+      </a>
+      <form class="header-search" id="header-search-form" action="index.html">
+        <label class="sr-only" for="header-search-input">Search the library</label>
+        <input id="header-search-input" name="q" type="search" placeholder="Search the library…" />
+      </form>
+      <nav aria-label="Primary navigation"><a href="index.html">Library</a><a href="about.html">Field guide</a></nav>
+    </header>
+
+    <main class="detail-shell shell" id="hypothesis-detail">
+      <div class="detail-loading" id="detail-loading">Loading hypothesis record…</div>
+      <div id="detail-content" hidden>
+        <a class="back-link" href="index.html">← Back to library</a>
+        <section class="record-hero">
+          <div class="record-kicker" id="record-kicker"></div>
+          <h1 id="record-title"></h1>
+          <p id="record-statement"></p>
+          <div class="record-actions">
+            <button id="copy-link" type="button">Copy record link</button>
+            <a id="mitre-link" href="#" target="_blank" rel="noreferrer">Open MITRE reference ↗</a>
+          </div>
+        </section>
+
+        <section class="quick-facts" id="quick-facts" aria-label="Hypothesis quick facts"></section>
+
+        <div class="detail-layout">
+          <aside class="detail-nav" aria-label="On this page">
+            <p>ON THIS PAGE</p>
+            <a href="#overview">Overview</a>
+            <a href="#requirements">Data requirements</a>
+            <a href="#detection">Detection &amp; hunting</a>
+            <a href="#queries">Platform queries</a>
+            <a href="#artifacts">Artifacts &amp; IOCs</a>
+            <a href="#response">Response</a>
+            <a href="#references">References</a>
+          </aside>
+          <div class="detail-sections">
+            <section class="detail-section" id="overview"><div class="section-index">01</div><div><h2>Overview</h2><div class="field-stack" data-section="overview"></div></div></section>
+            <section class="detail-section" id="requirements"><div class="section-index">02</div><div><h2>Data requirements</h2><div class="field-stack" data-section="requirements"></div></div></section>
+            <section class="detail-section" id="detection"><div class="section-index">03</div><div><h2>Detection &amp; hunting</h2><div class="field-stack" data-section="detection"></div></div></section>
+            <section class="detail-section" id="queries"><div class="section-index">04</div><div><h2>Platform queries</h2><p class="section-note">Copy-ready starting points. Validate field mappings and tune thresholds for your environment.</p><div class="query-stack" data-section="queries"></div></div></section>
+            <section class="detail-section" id="artifacts"><div class="section-index">05</div><div><h2>Artifacts &amp; IOCs</h2><div class="field-stack" data-section="artifacts"></div></div></section>
+            <section class="detail-section" id="response"><div class="section-index">06</div><div><h2>Risk &amp; response</h2><div class="field-stack" data-section="response"></div></div></section>
+            <section class="detail-section" id="references"><div class="section-index">07</div><div><h2>References &amp; notes</h2><div class="field-stack" data-section="references"></div></div></section>
+          </div>
+        </div>
+        <nav class="record-pagination" aria-label="Hypothesis records"><a id="previous-record" href="#">← Previous</a><a id="next-record" href="#">Next →</a></nav>
+      </div>
+      <div class="empty-state" id="record-not-found" hidden><span aria-hidden="true">404</span><h1>Hypothesis not found</h1><p>The requested ID is not present in this dataset.</p><a class="button-link" href="index.html">Return to library</a></div>
+    </main>
+    <footer class="site-footer shell"><p>HUNTGRID / Threat Hunting Hypothesis Library</p><p>Static analyst reference</p></footer>
+    <script type="module" src="assets/details.js"></script>
+  </body>
+</html>
