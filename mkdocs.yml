@@ -76,7 +76,7 @@ nav:
       - Reporting: Start-Hunting/threat-hunting-documentation.md
       - Telemetry & Logs to collect: Start-Hunting/threat-hunting-device-logs-telemetry-details.html
       - Low Hanging Fruits: Start-Hunting/low-hanging-fruits-threat-hunting.md
-  
+  - Hypothesis: hypothesis/index.html
   - Learn Attacks: 
       - Attacks in History: learn-known-cyber-attacks/index.html
       - Attacks Encyclopedia: attack-encyclopedia/index.html
