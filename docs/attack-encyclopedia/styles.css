@@ -1,17 +1,19 @@
+@import url("../assets/stylesheets/blue-team-theme.css");
+
 :root {
-  --ink: #ecf7f6;
-  --muted: #8ca6a8;
-  --dim: #536b6d;
-  --bg: #061011;
-  --panel: #091719;
-  --panel-2: #0d1d20;
-  --line: #1c3436;
-  --line-bright: #2b5557;
-  --cyan: #53f6df;
-  --cyan-soft: #8eeadd;
-  --acid: #c9f368;
-  --orange: #ff9b62;
-  --danger: #ff6577;
+  --ink: var(--thl-ink);
+  --muted: var(--thl-ink-soft);
+  --dim: var(--thl-ink-faint);
+  --bg: var(--thl-canvas);
+  --panel: var(--thl-surface);
+  --panel-2: var(--thl-surface-subtle);
+  --line: var(--thl-line);
+  --line-bright: var(--thl-line-strong);
+  --cyan: var(--thl-primary);
+  --cyan-soft: var(--thl-cyan);
+  --acid: var(--thl-primary);
+  --orange: var(--thl-warning);
+  --danger: var(--thl-danger);
 }
 
 * {
@@ -26,7 +28,7 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at 84% 4%, rgba(83, 246, 223, 0.07), transparent 28rem),
+    radial-gradient(circle at 84% 4%, rgba(11, 99, 206, 0.10), transparent 28rem),
     var(--bg);
   color: var(--ink);
   font-family:
@@ -43,14 +45,14 @@ body::before {
   pointer-events: none;
   opacity: 0.22;
   background-image:
-    linear-gradient(rgba(83, 246, 223, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(83, 246, 223, 0.035) 1px, transparent 1px);
+    linear-gradient(rgba(11, 99, 206, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 99, 206, 0.04) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: linear-gradient(to bottom, black, transparent 75%);
 }
 
 ::selection {
-  color: #041011;
+  color: #ffffff;
   background: var(--cyan);
 }
 
@@ -79,6 +81,8 @@ a {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, .88);
+  backdrop-filter: blur(16px);
 }
 
 .brand {
@@ -151,7 +155,7 @@ a {
   padding: 8px 11px;
   border: 1px solid var(--line);
   color: var(--cyan-soft);
-  background: rgba(83, 246, 223, 0.025);
+  background: var(--thl-cyan-soft);
 }
 
 .header-status i {
@@ -2025,3 +2029,66 @@ footer > a {
 
 
 [hidden] { display: none !important; }
+
+/* Shared light blue-team surface overrides. */
+.primary-button,
+.filters button:hover,
+.filters button:focus-visible,
+.filters button.active,
+.copy-button:hover,
+.copy-button:focus-visible {
+  color: #ffffff;
+}
+
+.hero-console,
+.search-panel,
+.query-card,
+.log-sample,
+.log-sample pre {
+  background: var(--panel);
+  box-shadow: var(--thl-shadow-sm);
+}
+
+.detail-header {
+  background: rgba(255, 255, 255, .94);
+  border-bottom: 1px solid var(--line);
+}
+
+kbd,
+.console-top,
+.query-head,
+.attack-card,
+.detail-section,
+.fact-card {
+  background-color: var(--panel-2);
+}
+
+.log-sample pre,
+.query-card pre {
+  color: #17476f;
+}
+
+.hero-copy > p,
+.detail-title-grid p,
+.lead,
+.study-list p,
+.flow-step p,
+.section-intro,
+.explanation-grid p,
+.scenario-list p,
+.relationship-grid a > p,
+.evidence-warning p,
+.log-sample > p,
+.log-interpretation p,
+.investigation-prompts ol,
+.questions summary {
+  color: var(--muted);
+}
+
+.coverage-note strong,
+.mitre-card strong,
+.subsection-title,
+.relationship-grid a > strong,
+.log-sample-head strong {
+  color: var(--ink);
+}

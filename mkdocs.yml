@@ -22,7 +22,7 @@ theme:
     - search.highlight
     - content.code.copy
   palette:
-    scheme: slate
+    scheme: default
     primary: custom
     accent: custom
   font:
@@ -30,6 +30,7 @@ theme:
     code: JetBrains Mono
 
 extra_css:
+  - assets/stylesheets/blue-team-theme.css
   - assets/stylesheets/threat-hunt.css
 
 extra_javascript:

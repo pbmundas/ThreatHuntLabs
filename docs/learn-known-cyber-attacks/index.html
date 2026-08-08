@@ -10,24 +10,24 @@
     .landing { width: min(100% - 2rem, 1200px); margin: 0 auto; padding: 1.25rem 0 4rem; }
     .topbar { display:flex; align-items:center; justify-content:space-between; gap:1rem; min-height:64px; border-bottom:1px solid var(--border); }
     .brand { display:flex; align-items:center; gap:.7rem; color:var(--text); font-weight:800; letter-spacing:-.02em; text-decoration:none; }
-    .mark { display:grid; place-items:center; width:32px; height:32px; border:1px solid #7b2727; border-radius:7px; background:var(--accent-soft); color:var(--accent); font-size:.75rem; }
+    .mark { display:grid; place-items:center; width:32px; height:32px; border:1px solid var(--border-strong); border-radius:7px; background:var(--accent-soft); color:var(--accent); font-size:.75rem; }
     .topbar span:last-child { color:var(--muted); font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; }
     .hero { padding:clamp(4rem, 10vw, 8rem) 0 3.5rem; border-bottom:1px solid var(--border); }
     .eyebrow { margin:0 0 1rem; color:var(--accent); font-size:.75rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
     h1 { max-width:850px; margin:0; font-size:clamp(2.7rem, 7vw, 5.8rem); line-height:.94; letter-spacing:-.065em; }
     .intro { max-width:720px; margin:1.75rem 0 0; color:var(--muted); font-size:clamp(1rem, 2vw, 1.18rem); }
-    .notice { display:flex; gap:.8rem; max-width:880px; margin-top:2rem; padding:1rem 1.1rem; border-left:2px solid var(--accent); background:var(--accent-soft); color:#c5ccd7; font-size:.88rem; }
+    .notice { display:flex; gap:.8rem; max-width:880px; margin-top:2rem; padding:1rem 1.1rem; border-left:2px solid var(--accent); background:var(--accent-soft); color:var(--muted); font-size:.88rem; }
     .notice strong { color:var(--text); white-space:nowrap; }
     .section-head { display:flex; align-items:end; justify-content:space-between; gap:1rem; padding:3.5rem 0 1.5rem; }
     .section-head h2 { margin:0; font-size:clamp(1.55rem, 3vw, 2.25rem); letter-spacing:-.035em; }
     .section-head p { margin:0; color:var(--muted); font-size:.9rem; }
     .grid { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); border-top:1px solid var(--border); border-left:1px solid var(--border); }
-    .card { position:relative; min-height:150px; padding:1.25rem; border-right:1px solid var(--border); border-bottom:1px solid var(--border); background:rgba(12,15,20,.68); color:var(--text); text-decoration:none; transition:background .18s ease, transform .18s ease; }
-    .card:hover { z-index:1; background:var(--surface-2); color:var(--text); transform:translateY(-3px); box-shadow:0 16px 30px rgba(0,0,0,.32); }
+    .card { position:relative; min-height:150px; padding:1.25rem; border-right:1px solid var(--border); border-bottom:1px solid var(--border); background:rgba(255,255,255,.82); color:var(--text); text-decoration:none; transition:background .18s ease, transform .18s ease; }
+    .card:hover { z-index:1; background:var(--surface-2); color:var(--text); transform:translateY(-3px); box-shadow:var(--thl-shadow-sm); }
     .year { display:block; color:var(--accent); font-size:.72rem; font-weight:800; letter-spacing:.12em; }
     .name { display:block; margin-top:1.7rem; font-size:1.12rem; font-weight:750; line-height:1.2; }
-    .arrow { position:absolute; right:1.15rem; bottom:1rem; color:#606b7a; }
-    footer { display:flex; justify-content:space-between; gap:1rem; padding:2rem 0 0; color:#768090; font-size:.78rem; }
+    .arrow { position:absolute; right:1.15rem; bottom:1rem; color:var(--muted); }
+    footer { display:flex; justify-content:space-between; gap:1rem; padding:2rem 0 0; color:var(--muted); font-size:.78rem; }
     @media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.topbar span:last-child{display:none}}
     @media(max-width:520px){.landing{width:min(100% - 1.25rem,1200px)}.hero{padding-top:3.75rem}.section-head{align-items:start;flex-direction:column}.grid{grid-template-columns:1fr}.card{min-height:124px}.name{margin-top:1.25rem}.notice{flex-direction:column}.notice strong{white-space:normal}footer{flex-direction:column}}
   </style>

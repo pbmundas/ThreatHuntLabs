@@ -1,0 +1,98 @@
+/* Loaded last so every lab view shares the repository-wide light blue-team theme. */
+html,
+body,
+.workspace,
+.analytics,
+.analytics-empty {
+  background-color: var(--bg);
+}
+
+.case-panel,
+.editor-wrap,
+.timeline-card,
+.query-guide,
+.chart-panel,
+.event-inspector,
+.account-card,
+.library-overlay,
+.source-item,
+.recipe,
+.field-head input,
+.answer-row input,
+.account-form input,
+.raw-event pre,
+.hist-bar span,
+.log-source-list span {
+  background: var(--panel);
+}
+
+.workspace,
+.case-panel {
+  background-color: rgba(255, 255, 255, .72);
+}
+
+.account-gate {
+  background: radial-gradient(circle at 50% 15%, rgba(11, 99, 206, .14), transparent 38%), rgba(243, 247, 252, .97);
+}
+
+.library-overlay {
+  background: rgba(243, 247, 252, .98);
+}
+
+.recipe,
+.raw-event pre,
+.editor-wrap textarea,
+.syntax-help code {
+  color: #17476f;
+}
+
+th,
+.field-item,
+.value-bar {
+  background: var(--panel2);
+  color: var(--text);
+}
+
+td {
+  color: var(--text);
+  border-color: var(--line);
+}
+
+tbody tr:hover {
+  background: var(--panel2);
+}
+
+.answer-row button,
+.run,
+.lab-card button,
+.account-actions button,
+#toast {
+  color: #ffffff;
+}
+
+.account-card,
+.lab-card,
+.loading-card,
+.objective,
+.chart-panel,
+.event-inspector {
+  box-shadow: var(--thl-shadow-sm);
+}
+
+.account-card {
+  border-color: var(--thl-line-strong);
+}
+
+.account-form input {
+  background: var(--panel2);
+  border-color: var(--line);
+  color: var(--text);
+}
+
+.event-inspector {
+  border-color: var(--line-strong);
+}
+
+.case-panel {
+  scrollbar-color: var(--line-strong) var(--panel2);
+}

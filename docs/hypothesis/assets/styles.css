@@ -1,19 +1,21 @@
+@import url("../../assets/stylesheets/blue-team-theme.css");
+
 :root {
-  --bg: #050706;
-  --surface: #0b0f0c;
-  --surface-2: #111612;
-  --surface-3: #171d18;
-  --line: #252d27;
-  --line-strong: #3a463d;
-  --text: #f1f1e9;
-  --muted: #9aa49c;
-  --dim: #687169;
-  --green: #b7ff2a;
-  --cyan: #43d9c3;
-  --critical: #ff5d68;
-  --high: #ff9e45;
-  --medium: #e7d35e;
-  --low: #43d9c3;
+  --bg: var(--thl-canvas);
+  --surface: var(--thl-surface);
+  --surface-2: var(--thl-surface-subtle);
+  --surface-3: var(--thl-surface-strong);
+  --line: var(--thl-line);
+  --line-strong: var(--thl-line-strong);
+  --text: var(--thl-ink);
+  --muted: var(--thl-ink-soft);
+  --dim: var(--thl-ink-faint);
+  --green: var(--thl-primary);
+  --cyan: var(--thl-cyan);
+  --critical: var(--thl-critical);
+  --high: #d45b16;
+  --medium: var(--thl-warning);
+  --low: var(--thl-success);
   --radius: 2px;
   --shell: 1240px;
   --mono: "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
@@ -26,8 +28,8 @@ body {
   margin: 0;
   color: var(--text);
   background:
-    linear-gradient(rgba(183, 255, 42, 0.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(183, 255, 42, 0.018) 1px, transparent 1px),
+    linear-gradient(rgba(11, 99, 206, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 99, 206, 0.035) 1px, transparent 1px),
     var(--bg);
   background-size: 48px 48px;
   font-family: var(--sans);
@@ -39,10 +41,10 @@ body {
 a { color: inherit; }
 button, input, select { font: inherit; }
 button, select { cursor: pointer; }
-::selection { color: #071006; background: var(--green); }
+::selection { color: #ffffff; background: var(--green); }
 .shell { width: min(calc(100% - 48px), var(--shell)); margin-inline: auto; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-.skip-link { position: fixed; z-index: 100; top: 8px; left: 8px; padding: 10px 14px; color: #050706; background: var(--green); transform: translateY(-150%); }
+.skip-link { position: fixed; z-index: 100; top: 8px; left: 8px; padding: 10px 14px; color: #ffffff; background: var(--green); transform: translateY(-150%); }
 .skip-link:focus { transform: translateY(0); }
 
 .site-header {
@@ -54,7 +56,7 @@ button, select { cursor: pointer; }
   min-height: 72px;
   padding: 0 max(24px, calc((100vw - var(--shell)) / 2));
   border-bottom: 1px solid var(--line);
-  background: rgba(5, 7, 6, 0.92);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(16px);
 }
 .brand { display: inline-flex; align-items: center; gap: 12px; width: fit-content; color: var(--text); font: 800 18px/1 var(--mono); letter-spacing: .08em; text-decoration: none; }
@@ -69,7 +71,7 @@ button, select { cursor: pointer; }
 .site-header nav a:hover, .site-header nav a.active { color: var(--text); }
 .site-header nav a.active::after { content: ""; position: absolute; inset: auto 0 -1px; height: 2px; background: var(--green); }
 .status-pill { justify-self: end; display: flex; align-items: center; gap: 8px; color: var(--muted); font: 600 11px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; }
-.status-pill span { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 14px rgba(183, 255, 42, .7); }
+.status-pill span { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 14px rgba(11, 99, 206, .35); }
 
 .hero { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(320px, .7fr); gap: 72px; padding-block: 88px 76px; border-bottom: 1px solid var(--line); }
 .eyebrow { margin: 0 0 20px; color: var(--green); font: 600 11px/1.2 var(--mono); letter-spacing: .16em; text-transform: uppercase; }
@@ -90,7 +92,7 @@ kbd { display: inline-grid; place-items: center; min-width: 26px; min-height: 25
 .hero-search > p { margin: 10px 0 0; color: var(--dim); font: 11px/1.5 var(--mono); }
 .hero-search > p strong { color: var(--cyan); font-weight: 500; }
 
-.signal-panel { align-self: stretch; padding: 24px; border: 1px solid var(--line); background: linear-gradient(145deg, rgba(19, 25, 20, .95), rgba(8, 11, 9, .95)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .025); }
+.signal-panel { align-self: stretch; padding: 24px; border: 1px solid var(--line); background: linear-gradient(145deg, var(--surface), var(--surface-2)); box-shadow: var(--thl-shadow-sm); }
 .signal-head { display: flex; justify-content: space-between; color: var(--dim); font: 600 10px/1 var(--mono); letter-spacing: .12em; }
 .signal-head b { color: var(--green); font-weight: 600; }
 .signal-number { margin-top: 42px; font: 500 clamp(64px, 8vw, 104px)/.82 var(--mono); letter-spacing: -.08em; }
@@ -288,4 +290,32 @@ kbd { display: inline-grid; place-items: center; min-width: 26px; min-height: 25
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+}
+
+/* Shared light blue-team surface overrides. */
+.hero-lede,
+.record-hero > p,
+.guide-hero > p:last-child,
+.field-block p,
+.query-block pre,
+.card-meta strong {
+  color: var(--muted);
+}
+
+.search-control,
+.hypothesis-card,
+.query-block {
+  background: var(--surface);
+  box-shadow: var(--thl-shadow-sm);
+}
+
+.hypothesis-card:hover {
+  border-color: var(--green);
+  background: var(--surface-2);
+}
+
+.load-more:hover,
+.empty-state button:hover,
+.button-link:hover {
+  color: #ffffff;
 }

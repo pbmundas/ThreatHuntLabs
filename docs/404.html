@@ -4,6 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Page not found | Threat Hunt Labs</title>
+    <link rel="stylesheet" href="/assets/stylesheets/blue-team-theme.css">
+    <style>
+      body { display:grid; min-height:100vh; margin:0; place-items:center; background:var(--thl-canvas); color:var(--thl-ink); font-family:var(--thl-font-sans); }
+      main { width:min(100% - 2rem,36rem); padding:clamp(2rem,6vw,4rem); border:1px solid var(--thl-line); border-radius:var(--thl-radius-md); background:var(--thl-surface); box-shadow:var(--thl-shadow-lg); }
+      p:first-child { margin:0 0 .75rem; color:var(--thl-primary); font-family:var(--thl-font-mono); font-size:.75rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+      h1 { margin:0 0 1rem; font-size:clamp(2rem,7vw,3.5rem); letter-spacing:-.045em; }
+      a { color:var(--thl-primary); font-weight:700; }
+    </style>
     <script>
       const redirects = {
         "/foundations/2025-07-20-unknown-facts-about-threat-hunting.md":
@@ -14,6 +22,10 @@
     </script>
   </head>
   <body>
-    <p>Page not found. <a href="/">Return to Threat Hunt Labs</a>.</p>
+    <main>
+      <p>Threat Hunt Labs / 404</p>
+      <h1>Page not found.</h1>
+      <p>The requested resource is unavailable. <a href="/">Return to Threat Hunt Labs</a>.</p>
+    </main>
   </body>
 </html>

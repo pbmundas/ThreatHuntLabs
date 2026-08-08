@@ -7,25 +7,26 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="../assets/stylesheets/blue-team-theme.css" rel="stylesheet">
 <style>
 
 :root{
-  --bg: #0f141a;
-  --bg-grid-line: rgba(143,160,179,0.05);
-  --panel: #161d25;
-  --panel-alt: #1a222b;
-  --panel-raised: #1d2630;
-  --border: #2a3441;
-  --border-soft: #212a35;
-  --text: #e8ecf0;
-  --text-dim: #93a3b3;
-  --text-faint: #5c6b7c;
-  --accent: #e8a33d;
-  --accent-dim: #a97a3c;
-  --accent-soft: rgba(232,163,61,0.13);
-  --teal: #4fb3ac;
-  --teal-soft: rgba(79,179,172,0.13);
-  --crit-critical: #e2574c;
+  --bg: var(--thl-canvas);
+  --bg-grid-line: rgba(11,99,206,0.05);
+  --panel: var(--thl-surface);
+  --panel-alt: var(--thl-surface-subtle);
+  --panel-raised: var(--thl-surface-strong);
+  --border: var(--thl-line);
+  --border-soft: #dbe6f1;
+  --text: var(--thl-ink);
+  --text-dim: var(--thl-ink-soft);
+  --text-faint: var(--thl-ink-faint);
+  --accent: var(--thl-primary);
+  --accent-dim: var(--thl-primary-hover);
+  --accent-soft: rgba(11,99,206,0.12);
+  --teal: var(--thl-cyan);
+  --teal-soft: var(--thl-cyan-soft);
+  --crit-critical: var(--thl-danger);
   --crit-critical-soft: rgba(226,87,76,0.15);
   --crit-high: #e8a33d;
   --crit-high-soft: rgba(232,163,61,0.15);
@@ -157,7 +158,7 @@ h1{
 }
 .btn svg{ flex-shrink:0; }
 .btn-ghost:hover{ background:var(--panel-alt); border-color:var(--text-faint); }
-.btn-solid{ background:var(--accent); border-color:var(--accent); color:#1a1305; font-weight:600; }
+.btn-solid{ background:var(--accent); border-color:var(--accent); color:#fff; font-weight:600; }
 .btn-solid:hover{ background:#f0b158; }
 
 .cols-menu-wrap{ position:relative; }

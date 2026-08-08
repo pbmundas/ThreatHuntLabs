@@ -1,0 +1,37 @@
+:root {
+  color-scheme: light;
+  --thl-canvas: #f3f7fc;
+  --thl-canvas-accent: #e8f2fc;
+  --thl-surface: #ffffff;
+  --thl-surface-subtle: #edf4fb;
+  --thl-surface-strong: #dceaf7;
+  --thl-line: #c8d8e8;
+  --thl-line-strong: #9eb7cf;
+  --thl-ink: #102a43;
+  --thl-ink-soft: #526b84;
+  --thl-ink-faint: #71869b;
+  --thl-primary: #0b63ce;
+  --thl-primary-hover: #084d9f;
+  --thl-cyan: #007f9e;
+  --thl-cyan-soft: #d9f2f7;
+  --thl-success: #187b67;
+  --thl-warning: #a85d00;
+  --thl-danger: #bd3348;
+  --thl-critical: #a9243c;
+  --thl-shadow-sm: 0 8px 24px rgba(16, 42, 67, .08);
+  --thl-shadow-lg: 0 24px 64px rgba(16, 42, 67, .14);
+  --thl-focus: 0 0 0 3px rgba(11, 99, 206, .22);
+  --thl-radius-sm: .45rem;
+  --thl-radius-md: .75rem;
+  --thl-font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --thl-font-mono: "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+::selection {
+  color: #ffffff;
+  background: var(--thl-primary);
+}
+
+:focus-visible {
+  outline-color: var(--thl-primary);
+}
