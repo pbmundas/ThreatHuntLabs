@@ -124,8 +124,8 @@ kbd { display: inline-grid; place-items: center; min-width: 26px; min-height: 25
 .filter-panel { display: grid; grid-template-columns: repeat(4, minmax(130px, 1fr)) minmax(130px, .8fr) auto; gap: 1px; padding: 1px; border: 1px solid var(--line); background: var(--line); }
 .filter-group { position: relative; min-width: 0; padding: 13px 14px 11px; background: var(--surface); }
 .filter-group label { display: block; margin-bottom: 5px; color: var(--dim); font: 600 9px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
-.filter-group select { width: 100%; padding: 0 20px 0 0; color: var(--text); border: 0; outline: 0; background: transparent; font-size: 13px; text-overflow: ellipsis; }
-.filter-group select option { color: var(--text); background: #111612; }
+.filter-group select { width: 100%; padding: 0 20px 0 0; color: var(--text); color-scheme: light; border: 0; outline: 0; background: transparent; font-size: 13px; text-overflow: ellipsis; }
+.filter-group select option { color: var(--text); background: var(--surface); }
 .filter-group:focus-within { box-shadow: inset 0 -2px var(--green); }
 .clear-button { padding: 0 18px; color: var(--muted); border: 0; background: var(--surface); font: 600 10px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .clear-button:hover { color: var(--green); }
