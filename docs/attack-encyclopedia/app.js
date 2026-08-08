@@ -6,7 +6,36 @@ const filters = [...document.querySelectorAll("[data-filter]")];
 const resultCount = document.querySelector("#result-count");
 const emptyState = document.querySelector("#empty-state");
 const reset = document.querySelector("#reset-search");
+const evidencePackSlugs = new Set([
+  "powershell-abuse",
+  "living-off-the-land",
+  "clear-windows-event-logs",
+  "security-tool-tampering",
+  "lsass-credential-dumping",
+  "windows-service-execution",
+  "remote-services",
+  "ingress-tool-transfer",
+  "brute-force",
+  "password-guessing",
+  "exploitation-of-public-facing-application",
+  "sql-injection",
+  "proxy-and-multi-hop-c2",
+  "registry-run-key-persistence",
+]);
 let category = "All";
+
+rows.forEach((row) => {
+  const slug = new URL(row.href, window.location.href).pathname
+    .split("/")
+    .pop()
+    .replace(/\.html$/, "");
+  if (!evidencePackSlugs.has(slug)) return;
+  const badge = document.createElement("span");
+  badge.className = "evidence-pack-badge";
+  badge.textContent = "RAW LOG PACK";
+  row.querySelector(".row-meta")?.appendChild(badge);
+  row.dataset.search += " raw logs native telemetry evidence pack";
+});
 
 function update() {
   const needle = search.value.trim().toLowerCase();

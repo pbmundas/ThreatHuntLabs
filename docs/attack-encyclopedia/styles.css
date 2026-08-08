@@ -837,6 +837,13 @@ kbd {
   color: var(--cyan-soft);
 }
 
+.row-meta .evidence-pack-badge {
+  color: var(--thl-primary);
+  border-color: rgba(11, 99, 206, .35);
+  background: var(--thl-cyan-soft);
+  font-weight: 700;
+}
+
 .row-arrow {
   color: var(--dim);
   font-size: 18px;
@@ -2091,4 +2098,131 @@ kbd,
 .relationship-grid a > strong,
 .log-sample-head strong {
   color: var(--ink);
+}
+
+/* Native-format training evidence supplied for production-shaped hunting examples. */
+.production-evidence-pack {
+  margin-top: 22px;
+}
+
+.production-evidence-intro {
+  padding: 20px;
+  border: 1px solid rgba(11, 99, 206, .35);
+  border-left: 4px solid var(--thl-primary);
+  background: linear-gradient(120deg, #ffffff, #edf5fd);
+  box-shadow: var(--thl-shadow-sm);
+}
+
+.production-evidence-intro > span,
+.production-evidence-intro > strong {
+  display: block;
+}
+
+.production-evidence-intro > span {
+  color: var(--thl-primary);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+
+.production-evidence-intro > strong {
+  margin-top: 7px;
+  color: var(--ink);
+  font-size: 18px;
+}
+
+.production-evidence-intro > p {
+  max-width: 78ch;
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.production-log-stack {
+  margin-top: 14px;
+}
+
+.production-log-sample {
+  border-color: #a9bfd4;
+  background: #ffffff;
+}
+
+.production-log-sample .log-sample-head {
+  background: #edf5fd;
+}
+
+.production-log-sample .log-sample-head span {
+  color: var(--thl-primary);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.production-log-sample > p {
+  color: var(--thl-ink-soft);
+  background: #ffffff;
+}
+
+.production-log-sample pre {
+  max-height: 34rem;
+  padding: 20px !important;
+  overflow: auto;
+  color: #e7f3ff !important;
+  background: #0c2740 !important;
+  box-shadow: none;
+  font-size: 12px;
+  line-height: 1.62;
+  white-space: pre !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  tab-size: 2;
+}
+
+.production-log-guide {
+  border-top-color: #bfd1e2;
+  background: #f3f8fd;
+}
+
+.production-log-guide > strong {
+  color: var(--thl-primary);
+  font-size: 9px;
+}
+
+.production-pivots {
+  display: flex;
+  margin: 10px 0 0;
+  padding: 0;
+  gap: 7px;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.production-pivots li {
+  padding: 6px 8px;
+  color: #17476f;
+  border: 1px solid #c3d5e5;
+  border-radius: 4px;
+  background: #ffffff;
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 10px;
+}
+
+.production-log-guide p {
+  margin-top: 12px;
+  color: var(--thl-ink-soft);
+}
+
+.production-log-guide p b {
+  color: var(--thl-ink);
+}
+
+@media (max-width: 700px) {
+  .production-log-sample pre {
+    font-size: 11px;
+  }
+
+  .production-pivots {
+    display: grid;
+  }
 }
