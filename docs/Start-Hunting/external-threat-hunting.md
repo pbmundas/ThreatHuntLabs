@@ -2,11 +2,11 @@
 
 Most threat-hunting programs I have reviewed or built share the same starting question: *is an attacker already inside our environment?* That question drives the entire hunt. It shapes the data sources the team pulls from, the hypotheses analysts write, and the metrics leadership tracks at the end of the quarter. It is also, on its own, an incomplete question.
 
-One pattern I have noticed in many threat-hunting programs is that the hunt normally starts only after telemetry enters the SIEM. Endpoint logs, network flows, identity events, cloud audit trails, email metadata — all of it gets ingested, normalized, and hunted against. That is necessary work. But it also means the hunt begins at the moment the attacker has already touched something we can see. Everything that happened before that point — the domain registration, the certificate issuance, the reconnaissance against our employees, the leaked credential sitting in a stealer log for three months — is invisible to a hunting program built entirely on internal telemetry.
+One pattern I have noticed in many threat-hunting programs is that the hunt normally starts only after telemetry enters the SIEM. Endpoint logs, network flows, identity events, cloud audit trails, email metadata all of it gets ingested, normalized, and hunted against. That is necessary work. But it also means the hunt begins at the moment the attacker has already touched something we can see. Everything that happened before that point the domain registration, the certificate issuance, the reconnaissance against our employees, the leaked credential sitting in a stealer log for three months is invisible to a hunting program built entirely on internal telemetry.
 
 External Threat Hunting adds a second question to the traditional one: *can we identify attacker preparation, exposure, targeting, leaked access, or malicious infrastructure before the attacker reaches us?* This is not a replacement for internal hunting. It is the other half of a hunting program that, in most organizations I have worked with, only exists on one side.
 
-This article lays out External Threat Hunting as an operational discipline — not a rebrand of OSINT, not attack-surface management with a new name, and not another way of describing threat intelligence. It is its own investigative process, with its own methodology, its own data sources, and its own way of connecting back into the SOC.
+This article lays out External Threat Hunting as an operational discipline not a rebrand of OSINT, not attack-surface management with a new name, and not another way of describing threat intelligence. It is its own investigative process, with its own methodology, its own data sources, and its own way of connecting back into the SOC.
 
 ---
 
@@ -89,17 +89,17 @@ Here is a working definition I use when explaining this discipline to other prac
 
 A few parts of that definition are doing a lot of work, so it's worth unpacking them individually.
 
-**Proactive** — the hunt is not triggered by an internal alert. It is triggered by the hunter going out and looking, on a schedule or in response to a hypothesis.
+**Proactive** the hunt is not triggered by an internal alert. It is triggered by the hunter going out and looking, on a schedule or in response to a hypothesis.
 
-**Hypothesis-driven** — this is what separates hunting from browsing. A hunter starts with a testable statement, not a vague intention to "check what's out there."
+**Hypothesis-driven** this is what separates hunting from browsing. A hunter starts with a testable statement, not a vague intention to "check what's out there."
 
-**Organization-specific** — generic threat landscape awareness is not the goal. The goal is relevance to this specific organization, its domains, its people, its vendors, its brand.
+**Organization-specific** generic threat landscape awareness is not the goal. The goal is relevance to this specific organization, its domains, its people, its vendors, its brand.
 
-**External data** — the sources sit outside the organization's own telemetry: DNS, certificates, code repositories, breach data, criminal marketplaces, hosting infrastructure.
+**External data** the sources sit outside the organization's own telemetry: DNS, certificates, code repositories, breach data, criminal marketplaces, hosting infrastructure.
 
-**Attacker preparation** — much of what gets hunted here happens in MITRE ATT&CK's Reconnaissance and Resource Development stages, well before Initial Access.
+**Attacker preparation** much of what gets hunted here happens in MITRE ATT&CK's Reconnaissance and Resource Development stages, well before Initial Access.
 
-**Correlation, validation, internal investigation** — an external finding is not the end of the hunt. It's the beginning of an internal one. Finding a phishing domain is not the finish line; determining whether anyone in the organization interacted with it is.
+**Correlation, validation, internal investigation** an external finding is not the end of the hunt. It's the beginning of an internal one. Finding a phishing domain is not the finish line; determining whether anyone in the organization interacted with it is.
 
 Finding a suspicious domain is not necessarily threat hunting. The hunting starts when we form a hypothesis, investigate its relationships, and determine whether it has relevance to our organization.
 
@@ -111,25 +111,25 @@ Finding a suspicious domain is not necessarily threat hunting. The hunting start
 
 This covers domains, subdomains, IP addresses, ASN ranges, cloud infrastructure, VPN gateways, remote access systems, RDP, SSH, administrative interfaces, firewalls, email infrastructure, APIs, storage buckets, development systems, and forgotten or legacy infrastructure.
 
-Attackers routinely discover exposed assets before the organization that owns them does. A staging server spun up by a developer six months ago, never decommissioned, still resolving to a public IP with an old version of an admin panel — that kind of asset tends to surface in an attacker's reconnaissance long before it shows up on the security team's radar, because nobody is actively watching for it internally. It was never inventoried, so it can't be monitored.
+Attackers routinely discover exposed assets before the organization that owns them does. A staging server spun up by a developer six months ago, never decommissioned, still resolving to a public IP with an old version of an admin panel that kind of asset tends to surface in an attacker's reconnaissance long before it shows up on the security team's radar, because nobody is actively watching for it internally. It was never inventoried, so it can't be monitored.
 
 ### 2. Identity Exposure Surface
 
 This includes corporate email addresses, usernames, employees, privileged users, executives, contractors, developers, credentials appearing in breaches, password reuse risk, corporate accounts appearing in stealer logs, public employee information useful for phishing, and identity information useful for password spraying.
 
-This is broader than what people usually mean by "dark-web monitoring." The hunter's job is not just to confirm that an email address appears in a breach dump — that alone is low-value noise most of the time. The job is to determine whether the exposed identity information creates a realistic path into the organization: is the password still in use anywhere, does the account have privileged access, is MFA enforced on it, does the exposure line up with a system that's internet-facing.
+This is broader than what people usually mean by "dark-web monitoring." The hunter's job is not just to confirm that an email address appears in a breach dump that alone is low-value noise most of the time. The job is to determine whether the exposed identity information creates a realistic path into the organization: is the password still in use anywhere, does the account have privileged access, is MFA enforced on it, does the exposure line up with a system that's internet-facing.
 
 ### 3. Information Exposure Surface
 
 GitHub repositories, source code, API keys, access tokens, passwords, internal URLs, configuration files, VPN configuration, cloud credentials, `.env` files, infrastructure-as-code, public documents, document metadata, internal hostnames, internal IP ranges, architecture diagrams, troubleshooting screenshots, employee posts, and public technical documentation all fall here.
 
-Individually, most of these look harmless. A screenshot posted to a public forum while troubleshooting a VPN issue, an internal hostname visible in a Stack Overflow question, a `.env.example` file that was accidentally committed as `.env` — none of these look like an incident on their own. But an attacker doing reconnaissance is not looking for one dramatic leak. They're building a picture out of a dozen small ones, and the small ones are exactly what internal telemetry never sees.
+Individually, most of these look harmless. A screenshot posted to a public forum while troubleshooting a VPN issue, an internal hostname visible in a Stack Overflow question, a `.env.example` file that was accidentally committed as `.env` none of these look like an incident on their own. But an attacker doing reconnaissance is not looking for one dramatic leak. They're building a picture out of a dozen small ones, and the small ones are exactly what internal telemetry never sees.
 
 ### 4. Adversary Infrastructure Surface
 
 Hunters in this surface investigate malicious domains, IP addresses, VPS infrastructure, certificates, passive DNS, ASN relationships, hosting providers, nameservers, domain registrations, URL patterns, web templates, favicons, redirect infrastructure, malware C2, and phishing infrastructure.
 
-Infrastructure pivoting is the core skill here — following relationships between artifacts rather than treating each one as an isolated data point:
+Infrastructure pivoting is the core skill here following relationships between artifacts rather than treating each one as an isolated data point:
 
 ```text
 Suspicious Domain
@@ -155,13 +155,13 @@ A single malicious domain is a data point. The set of domains that share its cer
 
 This covers defensive, lawful monitoring of breach datasets, credential exposure, stealer-log intelligence, initial access broker advertisements, ransomware leak sites, threat-actor discussions, data-sale advertisements, company references, access-sale posts, and compromised accounts.
 
-This has to stay strictly defensive. The goal is awareness obtained through authorized or legitimate monitoring services and datasets — not direct interaction with criminal marketplaces, not purchasing anything, not attempting to access restricted systems. Most organizations rely on vetted breach-intelligence and dark-web monitoring providers for this surface rather than doing it manually, for good reason.
+This has to stay strictly defensive. The goal is awareness obtained through authorized or legitimate monitoring services and datasets not direct interaction with criminal marketplaces, not purchasing anything, not attempting to access restricted systems. Most organizations rely on vetted breach-intelligence and dark-web monitoring providers for this surface rather than doing it manually, for good reason.
 
 ---
 
 ## External Threat Hunting vs. OSINT
 
-This distinction matters more than most people give it credit for. OSINT is primarily a **collection discipline**. Threat hunting is a **hypothesis-driven investigation process**. The difference isn't the tools — both use certificate transparency logs, passive DNS, and search engines. The difference is what happens before and after the search.
+This distinction matters more than most people give it credit for. OSINT is primarily a **collection discipline**. Threat hunting is a **hypothesis-driven investigation process**. The difference isn't the tools both use certificate transparency logs, passive DNS, and search engines. The difference is what happens before and after the search.
 
 OSINT approach:
 
@@ -193,7 +193,7 @@ Vulnerability / Configuration Review
 Risk
 ```
 
-Running `crt.sh` against your own domain and exporting the results is not, by itself, a hunt. It's step one of one. Running that query, validating which subdomains are unrecognized, confirming ownership, checking what's actually listening on them, and assessing exposure — that's the hunt. The tool doesn't do the thinking. The hunter does.
+Running `crt.sh` against your own domain and exporting the results is not, by itself, a hunt. It's step one of one. Running that query, validating which subdomains are unrecognized, confirming ownership, checking what's actually listening on them, and assessing exposure that's the hunt. The tool doesn't do the thinking. The hunter does.
 
 ---
 
@@ -229,7 +229,7 @@ ASM tells you the door exists. Hunting tells you whether anyone has tried the ha
 | Indicator enrichment | Validation and correlation |
 | Strategic/tactical intelligence | Operational investigation |
 
-Good External Threat Hunting leans heavily on threat intelligence — it's often the starting seed for a hypothesis about which actors or campaigns are relevant. But a program that stops at "we subscribed to a feed and reviewed the reports" hasn't started hunting yet. It's stopped at the ingestion stage.
+Good External Threat Hunting leans heavily on threat intelligence it's often the starting seed for a hypothesis about which actors or campaigns are relevant. But a program that stops at "we subscribed to a feed and reviewed the reports" hasn't started hunting yet. It's stopped at the ingestion stage.
 
 ---
 
@@ -252,9 +252,9 @@ I break this into twelve stages. Not every hunt needs all twelve applied with eq
 12. Revalidation
 ```
 
-**Scope** — define what's in play: the organization, its domains, brands, subsidiaries, cloud environments, IP ranges, executives, vendors, and technology stack. Scope creep here is a common failure mode; a hunt that tries to cover "the entire internet ecosystem related to us" produces nothing actionable.
+**Scope** define what's in play: the organization, its domains, brands, subsidiaries, cloud environments, IP ranges, executives, vendors, and technology stack. Scope creep here is a common failure mode; a hunt that tries to cover "the entire internet ecosystem related to us" produces nothing actionable.
 
-**Hypothesis** — this is where hunt quality is decided. Compare a weak hypothesis against a strong one:
+**Hypothesis** this is where hunt quality is decided. Compare a weak hypothesis against a strong one:
 
 Weak:
 > Search for phishing domains.
@@ -264,25 +264,25 @@ Strong:
 
 The strong version tells you what to search for, what timeframe matters, and what "success" looks like when you find something.
 
-**Seeds** — the starting artifacts for a hunt: a domain, an IP, a brand name, an email address, a certificate, an ASN, a file hash, known threat-actor infrastructure, an employee identity, or a vendor domain.
+**Seeds** the starting artifacts for a hunt: a domain, an IP, a brand name, an email address, a certificate, an ASN, a file hash, known threat-actor infrastructure, an employee identity, or a vendor domain.
 
-**Collection** — pulling raw data from the relevant external sources for the hypothesis in question.
+**Collection** pulling raw data from the relevant external sources for the hypothesis in question.
 
-**Enrichment** — adding context to raw findings: registration dates, hosting history, reputation data, related infrastructure.
+**Enrichment** adding context to raw findings: registration dates, hosting history, reputation data, related infrastructure.
 
-**Pivoting** — following relationships from one artifact to related ones, as shown in the infrastructure pivoting diagram earlier.
+**Pivoting** following relationships from one artifact to related ones, as shown in the infrastructure pivoting diagram earlier.
 
-**Correlation** — combining multiple datasets to build a coherent picture rather than a pile of disconnected indicators.
+**Correlation** combining multiple datasets to build a coherent picture rather than a pile of disconnected indicators.
 
-**Validation** — removing false positives before anything moves further. This stage alone determines whether a hunting program is trusted or ignored by the rest of the SOC.
+**Validation** removing false positives before anything moves further. This stage alone determines whether a hunting program is trusted or ignored by the rest of the SOC.
 
-**Internal Search** — searching SIEM, DNS, proxy, EDR, email, identity, NDR, firewall, and cloud telemetry for any interaction with the validated external finding.
+**Internal Search** searching SIEM, DNS, proxy, EDR, email, identity, NDR, firewall, and cloud telemetry for any interaction with the validated external finding.
 
-**Risk Assessment** — evaluating likelihood and impact given everything found so far.
+**Risk Assessment** evaluating likelihood and impact given everything found so far.
 
-**Remediation** — taking operational action: takedown requests, credential rotation, asset decommissioning, blocking, alerting affected users.
+**Remediation** taking operational action: takedown requests, credential rotation, asset decommissioning, blocking, alerting affected users.
 
-**Revalidation** — confirming later that the exposure or threat is actually gone, not just that a ticket was closed.
+**Revalidation** confirming later that the exposure or threat is actually gone, not just that a ticket was closed.
 
 ---
 
@@ -347,16 +347,16 @@ Domain B         Domain C
 
 At this point the finding is externally validated but still unconfirmed as relevant to NorthStar specifically. That's where internal correlation takes over:
 
-- **Email** — did any employee receive the URL?
-- **DNS** — did any endpoint resolve it?
-- **Proxy** — did anyone visit it?
-- **Endpoint** — which browser or process accessed it?
-- **Identity** — was there unusual authentication activity afterward?
-- **VPN** — were the same users targeted through authentication attempts?
-- **EDR** — was anything downloaded?
-- **SIEM** — what happened before and after the interaction?
+- **Email** did any employee receive the URL?
+- **DNS** did any endpoint resolve it?
+- **Proxy** did anyone visit it?
+- **Endpoint** which browser or process accessed it?
+- **Identity** was there unusual authentication activity afterward?
+- **VPN** were the same users targeted through authentication attempts?
+- **EDR** was anything downloaded?
+- **SIEM** what happened before and after the interaction?
 
-This is the point where an external finding either turns into a real incident investigation or gets closed as a validated-but-uninteracted-with exposure. Both outcomes are useful. The first triggers an incident response process. The second still gives you a takedown target and confirms your employees weren't reached — which is itself worth knowing.
+This is the point where an external finding either turns into a real incident investigation or gets closed as a validated-but-uninteracted-with exposure. Both outcomes are useful. The first triggers an incident response process. The second still gives you a takedown target and confirms your employees weren't reached which is itself worth knowing.
 
 ---
 
@@ -418,23 +418,23 @@ A hunting program needs a running backlog of hypotheses, not a one-time checklis
 
 Rather than naming specific commercial products throughout, it helps to think in categories.
 
-**DNS** — DNS records, passive DNS, historical DNS.
+**DNS** DNS records, passive DNS, historical DNS.
 
-**Domains** — RDAP, WHOIS, domain registration data feeds.
+**Domains** RDAP, WHOIS, domain registration data feeds.
 
-**Certificates** — Certificate Transparency logs.
+**Certificates** Certificate Transparency logs.
 
-**Internet exposure** — internet scanning/search platforms such as Shodan and Censys.
+**Internet exposure** internet scanning/search platforms such as Shodan and Censys.
 
-**Web infrastructure** — urlscan-style page-fingerprinting services, historical webpage archives, favicon hashes.
+**Web infrastructure** urlscan-style page-fingerprinting services, historical webpage archives, favicon hashes.
 
-**Threat intelligence** — VirusTotal, MISP, OpenCTI, and commercial intelligence services.
+**Threat intelligence** VirusTotal, MISP, OpenCTI, and commercial intelligence services.
 
-**Code repositories** — GitHub, GitLab, and public package repositories.
+**Code repositories** GitHub, GitLab, and public package repositories.
 
-**Cloud exposure** — public storage buckets, cloud-hosted asset discovery, exposed APIs.
+**Cloud exposure** public storage buckets, cloud-hosted asset discovery, exposed APIs.
 
-**Identity / breach intelligence** — authorized breach-intelligence providers, credential exposure monitoring, security-approved dark-web monitoring services.
+**Identity / breach intelligence** authorized breach-intelligence providers, credential exposure monitoring, security-approved dark-web monitoring services.
 
 Each category plays a different role. DNS and certificate sources are usually the fastest way to discover new infrastructure. Code repositories tend to surface the most damaging individual findings (a live cloud credential is worse than most phishing domains). Breach and underground intelligence sources are the slowest to act on but often carry the highest-confidence signal of actual targeting.
 
@@ -446,7 +446,7 @@ Each category plays a different role. DNS and certificate sources are usually th
 
 **Active methods** involve direct, authorized checks: validating organization-owned assets, checking open services, reviewing HTTP responses, TLS properties, and security headers on known organization infrastructure.
 
-Active scanning must only ever be performed against assets the organization actually owns and has authorization to test. It should never be pointed at third-party infrastructure or suspected attacker infrastructure — beyond the passive investigation of publicly available metadata about that infrastructure. The line here isn't ambiguous: if you don't own it, you observe it, you don't probe it.
+Active scanning must only ever be performed against assets the organization actually owns and has authorization to test. It should never be pointed at third-party infrastructure or suspected attacker infrastructure beyond the passive investigation of publicly available metadata about that infrastructure. The line here isn't ambiguous: if you don't own it, you observe it, you don't probe it.
 
 ---
 
@@ -614,13 +614,13 @@ External data is noisy, and a hunting program that doesn't budget time for valid
 - Historical DNS relationships that no longer apply
 - Shared cloud infrastructure
 
-Enrichment and validation are what separate a signal from noise here — checking ownership records, hosting history, and actual page content before escalating anything.
+Enrichment and validation are what separate a signal from noise here checking ownership records, hosting history, and actual page content before escalating anything.
 
 ---
 
 ## Measuring the Program
 
-Raw indicator counts are a poor way to judge a hunting program — a feed can generate thousands of low-quality indicators without producing a single useful finding. Better metrics include:
+Raw indicator counts are a poor way to judge a hunting program a feed can generate thousands of low-quality indicators without producing a single useful finding. Better metrics include:
 
 - New external assets discovered
 - Unknown assets validated
@@ -694,15 +694,15 @@ This can gradually be automated with Python scripts, API integrations, MISP or O
 
 ## A Maturity Model
 
-**Level 1 — Reactive.** External investigation happens only after an incident has already occurred. There's no proactive external visibility.
+**Level 1 Reactive.** External investigation happens only after an incident has already occurred. There's no proactive external visibility.
 
-**Level 2 — Monitoring.** Brand, credential, and attack-surface alerts are monitored, usually through a vendor feed, but nobody is actively hunting against the data.
+**Level 2 Monitoring.** Brand, credential, and attack-surface alerts are monitored, usually through a vendor feed, but nobody is actively hunting against the data.
 
-**Level 3 — Hypothesis Driven.** Structured external hunts are conducted on a schedule, using the methodology described above.
+**Level 3 Hypothesis Driven.** Structured external hunts are conducted on a schedule, using the methodology described above.
 
-**Level 4 — Correlated.** External findings automatically feed internal SIEM/EDR hunting workflows, closing the loop between outside and inside.
+**Level 4 Correlated.** External findings automatically feed internal SIEM/EDR hunting workflows, closing the loop between outside and inside.
 
-**Level 5 — Adversary Led.** The team actively hunts attacker infrastructure and preparation activity before any direct interaction with the organization occurs — the most advanced posture, and the least common in practice.
+**Level 5 Adversary Led.** The team actively hunts attacker infrastructure and preparation activity before any direct interaction with the organization occurs the most advanced posture, and the least common in practice.
 
 Most organizations I've seen sit at Level 2, with a monitoring subscription and an inbox full of alerts nobody has time to fully investigate. Getting to Level 3 is mostly a process and staffing decision, not a tooling one.
 
@@ -738,15 +738,15 @@ Potential Targeting
 Internal Detection Preparation
 ```
 
-Instead of waiting to discover infrastructure that's already been used against the organization, the hunter tracks infrastructure belonging to relevant threat actors as it expands, and uses that to build detections before there's ever a direct hit. This requires discipline around confidence levels and attribution — it's easy to overstate how certain a link between infrastructure and a named actor really is. Stick to what the evidence actually supports, and label assessments as assessments, not facts.
+Instead of waiting to discover infrastructure that's already been used against the organization, the hunter tracks infrastructure belonging to relevant threat actors as it expands, and uses that to build detections before there's ever a direct hit. This requires discipline around confidence levels and attribution it's easy to overstate how certain a link between infrastructure and a named actor really is. Stick to what the evidence actually supports, and label assessments as assessments, not facts.
 
 ---
 
 ## MITRE ATT&CK Relationship
 
-External Threat Hunting maps most directly to two tactics: **Reconnaissance** and **Resource Development**. These cover the behaviors attackers perform before they ever touch the environment — collecting victim identity information, collecting network information, collecting organizational information, searching open websites and domains, acquiring infrastructure, acquiring domains, acquiring servers, compromising infrastructure for later use, and establishing accounts.
+External Threat Hunting maps most directly to two tactics: **Reconnaissance** and **Resource Development**. These cover the behaviors attackers perform before they ever touch the environment collecting victim identity information, collecting network information, collecting organizational information, searching open websites and domains, acquiring infrastructure, acquiring domains, acquiring servers, compromising infrastructure for later use, and establishing accounts.
 
-The defender's takeaway isn't just "these are pre-attack stages." It's this: if these are activities attackers perform before Initial Access, defenders should build hunting capabilities around the evidence those activities leave behind — because that evidence is observable externally, well before it becomes an internal alert.
+The defender's takeaway isn't just "these are pre-attack stages." It's this: if these are activities attackers perform before Initial Access, defenders should build hunting capabilities around the evidence those activities leave behind because that evidence is observable externally, well before it becomes an internal alert.
 
 ---
 
@@ -771,7 +771,7 @@ Every one of these can become a data source or a supporting capability inside a 
 
 ## A Realistic Example
 
-A hunter discovers a newly registered domain closely resembling the company's Microsoft 365 login branding. At first glance it looks like another brand-monitoring alert — the kind that shows up weekly and usually goes nowhere.
+A hunter discovers a newly registered domain closely resembling the company's Microsoft 365 login branding. At first glance it looks like another brand-monitoring alert the kind that shows up weekly and usually goes nowhere.
 
 Further investigation finds that registration occurred two days earlier, and a TLS certificate was issued for it hours after that. The same certificate infrastructure connects to several other login-themed domains. The webpage itself closely mimics the Microsoft authentication flow. Email telemetry shows three employees received URLs pointing to the domain. One of them visited the page. Identity logs show failed authentication attempts against the real environment shortly afterward.
 
@@ -787,13 +787,13 @@ Internal Correlation
 Security Incident
 ```
 
-What started as a routine brand-monitoring alert — the kind of thing that's easy to triage in thirty seconds and move on from — turned into an active incident because someone followed the chain all the way through instead of stopping at the first data point.
+What started as a routine brand-monitoring alert the kind of thing that's easy to triage in thirty seconds and move on from turned into an active incident because someone followed the chain all the way through instead of stopping at the first data point.
 
 ---
 
 ## Conclusion
 
-Threat hunting should not begin only when an attacker generates telemetry inside the environment. By the time that telemetry exists, the attacker has already done the preparation work — registered the domain, stood up the infrastructure, collected the employee names, tested the credentials. Waiting for that activity to cross into internal visibility means starting the investigation several steps behind.
+Threat hunting should not begin only when an attacker generates telemetry inside the environment. By the time that telemetry exists, the attacker has already done the preparation work registered the domain, stood up the infrastructure, collected the employee names, tested the credentials. Waiting for that activity to cross into internal visibility means starting the investigation several steps behind.
 
 Mature hunting programs look in both directions:
 
@@ -824,7 +824,7 @@ This article is the first in a planned practical series:
 11. Third-party exposure hunting
 12. Automating an external hunting pipeline
 
-The next article starts with **ETH-001 — Discover Your Organization From an Attacker's Perspective**.
+The next article starts with **ETH-001 Discover Your Organization From an Attacker's Perspective**.
 
 ---
 
