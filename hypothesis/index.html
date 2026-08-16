@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f3f7fc" />
+    <meta name="description" content="Browse 306 threat hunting hypotheses across MITRE ATT&CK tactics, platforms, priorities, and detection data." />
+    <meta property="og:title" content="HUNTGRID — Threat Hunting Hypothesis Library" />
+    <meta property="og:description" content="306 hypotheses. 72 searchable fields. One analyst-focused catalog." />
+    <meta property="og:image" content="assets/og.png" />
+    <title>HUNTGRID — Threat Hunting Hypothesis Library</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="/assets/stylesheets/site-shell.css">
+  <script src="/assets/javascripts/site-shell.js" defer></script>
+</head>
+  <body>
+    <a class="skip-link" href="#catalog">Skip to catalog</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="HUNTGRID home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>HUNT<span>GRID</span></span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a class="active" href="index.html">Library</a>
+        <a href="about.html">Field guide</a>
+      </nav>
+      <div class="status-pill"><span></span> Dataset online</div>
+    </header>
+
+    <main>
+      <section class="hero shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span>THREAT INTELLIGENCE / HUNT OPERATIONS</span></p>
+          <h1 id="hero-title">Find the next<br /><em>hunt worth running.</em></h1>
+          <p class="hero-lede">A field-ready library of hypotheses, detection logic, platform queries, artifacts, and response guidance mapped to MITRE ATT&amp;CK.</p>
+          <div class="hero-search">
+            <label for="global-search">Search every field</label>
+            <div class="search-control">
+              <span class="search-glyph" aria-hidden="true"></span>
+              <input id="global-search" type="search" autocomplete="off" placeholder="Try T1059, rundll32, credential access, CloudTrail…" />
+              <kbd>/</kbd>
+            </div>
+            <p>Searches all <strong id="search-field-count">72</strong> fields — including queries, IOCs, artifacts, and response actions.</p>
+          </div>
+        </div>
+        <aside class="signal-panel" aria-label="Library overview">
+          <div class="signal-head"><span>DATASET SIGNAL</span><b>LIVE</b></div>
+          <div class="signal-number" id="total-count">306</div>
+          <p>Hunting hypotheses indexed</p>
+          <div class="signal-trace" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="signal-metrics">
+            <div><strong id="tactic-count">12</strong><span>ATT&amp;CK tactics</span></div>
+            <div><strong id="technique-count">—</strong><span>Technique IDs</span></div>
+          </div>
+          <div class="tactic-scan" id="tactic-scan" aria-label="Largest tactic groups"></div>
+        </aside>
+      </section>
+
+      <section class="catalog shell" id="catalog" aria-labelledby="catalog-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">HYPOTHESIS CATALOG</p>
+            <h2 id="catalog-title">Browse the library</h2>
+          </div>
+          <p id="result-summary" role="status" aria-live="polite">Loading hypotheses…</p>
+        </div>
+
+        <div class="filter-panel" aria-label="Catalog filters">
+          <div class="filter-group">
+            <label for="filter-tactic">ATT&amp;CK tactic</label>
+            <select id="filter-tactic"><option value="">All tactics</option></select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-severity">Severity</label>
+            <select id="filter-severity"><option value="">All severities</option></select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-platform">Platform</label>
+            <select id="filter-platform"><option value="">All platforms</option></select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-priority">Priority</label>
+            <select id="filter-priority"><option value="">All priorities</option></select>
+          </div>
+          <div class="filter-group sort-group">
+            <label for="sort-order">Sort by</label>
+            <select id="sort-order">
+              <option value="id">Hypothesis ID</option>
+              <option value="severity">Highest severity</option>
+              <option value="tactic">ATT&amp;CK tactic</option>
+            </select>
+          </div>
+          <button class="clear-button" id="clear-filters" type="button">Reset</button>
+        </div>
+        <div class="active-filters" id="active-filters" aria-label="Active filters"></div>
+
+        <div class="card-grid" id="results-grid" aria-live="polite"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <span aria-hidden="true">∅</span>
+          <h3>No matching hypotheses</h3>
+          <p>Try a broader keyword or reset one of the filters.</p>
+          <button type="button" id="empty-reset">Reset search</button>
+        </div>
+        <div class="load-zone"><button class="load-more" id="load-more" type="button" hidden>Load more hypotheses</button></div>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <div class="brand footer-brand"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>HUNT<span>GRID</span></span></div>
+      <p>Static, portable, and built for analyst workflows.</p>
+      <p>Source: Threat_Hunting_Hypotheses.xlsx</p>
+    </footer>
+    <script type="module" src="assets/catalog.js"></script>
+  </body>
+</html>
