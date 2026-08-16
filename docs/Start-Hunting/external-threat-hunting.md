@@ -828,9 +828,7 @@ The next article starts with **ETH-001 Discover Your Organization From an Attack
 
 ---
 
-### SEO Metadata
 
-**SEO Title:** External Threat Hunting: The Missing Half of Your Threat Hunting Program
 
 **Meta Description:** Traditional threat hunting looks inward. External Threat Hunting finds attacker preparation, leaked access, and exposure before they reach your SOC.
 
@@ -838,4 +836,3 @@ The next article starts with **ETH-001 Discover Your Organization From an Attack
 
 **SEO Keywords:** external threat hunting, threat hunting methodology, external attack surface, adversary infrastructure hunting, threat intelligence vs threat hunting, proactive threat hunting, attack surface hunting, external threat intelligence
 
-**Social Hashtags:** #ThreatHunting #ExternalThreatHunting #CyberSecurity #SOC #ThreatIntelligence
